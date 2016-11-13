@@ -1,0 +1,5 @@
+#dev=/dev/$(dmesg | grep pl2303 | grep tty | cut -d" " -f8 | tail -1)
+
+dev=$(/home/mc/BIN/find_rs485)
+echo $dev
+./mc_meters_test $dev $1

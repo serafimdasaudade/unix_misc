@@ -1,0 +1,16 @@
+log start: Mon Jan 25 22:19:56 2016
+1453760396.408 ERRO  Sockectconnect (Connection refused)
+1453760396.408 DEB2  soc_send 6 bytes
+1453760396.408 ERRO  SocketSend Bad file descriptor(9)
+1453760396.408 WARN  Socket wrote=-1 expected=6
+1453760396.408 ERRO  SocketRecv (fd=-1) Bad file descriptor
+1453760401.408 ERRO  Sockectconnect (Connection refused)
+1453760401.408 DEB2  soc_send 6 bytes
+1453760401.408 ERRO  SocketSend Bad file descriptor(9)
+1453760401.409 WARN  Socket wrote=-1 expected=6
+1453760401.409 ERRO  SocketRecv (fd=-1) Bad file descriptor
+1453760406.409 ERRO  Sockectconnect (Connection refused)
+1453760406.409 DEB2  soc_send 6 bytes
+1453760406.409 ERRO  SocketSend Bad file descriptor(9)
+1453760406.409 WARN  Socket wrote=-1 expected=6
+1453760406.409 ERRO  SocketRecv (fd=-1) Bad file descriptor

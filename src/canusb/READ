@@ -1,0 +1,9 @@
+cceptance Register Calculations :
+To compute the ACR and AMR registers of the SJA1000
+CAN controller chip. This is important for filtering traffic.
+You send these with the 'M' and 'm' messages to the CAN232. 
+acramr_calc.c
+acramr_calc_simple.c
+
+I also found it useful to be able to tell what is filtered based on the ACR/AMR registers : 
+acramr_rev_calc.c

@@ -1,0 +1,4 @@
+dev=$(/home/mc/BIN/find_rs485)
+echo $dev
+
+./trs232 $dev 

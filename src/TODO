@@ -1,0 +1,25 @@
+LOGS 
+add time of msg (ms)
+
+CAREFUL signals
+http://devcry.blogspot.com/2009/05/pthreads-and-unix-signals.html
+
+
+IDEAS
+
+#include <sched.h>
+
+int sched_yield(void);
+
+
+int pthread_cond_timedwait(pthread_cond_t *restrict cond,
+       pthread_mutex_t *restrict mutex,
+       const struct timespec *restrict abstime);
+int pthread_cond_wait(pthread_cond_t *restrict cond,
+       pthread_mutex_t *restrict mutex);
+
+int pthread_mutex_timedlock_np(pthread_mutex_t *mutex,
+                               const struct timespec *deltatime);
+
+pthread_mutex_trylock
+

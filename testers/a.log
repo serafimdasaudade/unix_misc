@@ -1,0 +1,131 @@
+log start: Wed Dec 28 14:30:40 2011
+1325082640.107 INFO  READ MIFARE =================================
+1325082640.108 DEB1  READER	SpringCard CrazyWriter (44CC355B) 00 00
+1325082640.108 DEB1  ATRIB	Hex:	ER	SpringCard CrazyWriter (44CC355B) 00 00
+3B8F8001804F0CA000000306030001000000006A
+1325082640.108 DEB1  		Ascii:	           O                           j
+1325082640.108 DEB1  MIFARE	Hex:	6D00
+1325082640.108 DEB1  		Ascii:	 m  
+1325082640.109 INFO  READ ALL =================================
+1325082640.110 DEB1  READER	SpringCard CrazyWriter (44CC355B) 00 00
+1325082640.110 DEB1  ATRIB	Hex:	ER	SpringCard CrazyWriter (44CC355B) 00 00
+3B8F8001804F0CA000000306030001000000006A
+1325082640.110 DEB1  		Ascii:	           O                           j
+1325082640.110 WARN  SCardTransmit(SELECT CALYPSO_APPLICATION) -> SW=6F00
+1325082640.110 DEB1  APPLIC	1TIC.ICA
+1325082640.111 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082640.111 WARN  SCardTransmit(READ RECORD 2 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082640.112 WARN  SCardTransmit(SELECT Environment) -> SW=6F00
+1325082640.112 WARN  SCardTransmit(READ RECORD 1 from Environment file) -> SW=6F00 - ** Unkown error code **
+1325082640.112 DEB1  		envVersionNumber       = 27
+1325082640.112 DEB1  		bitmap=60
+1325082640.113 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082640.113 WARN  SCardTransmit(READ RECORD 1 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082640.114 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082640.114 WARN  SCardTransmit(READ RECORD 2 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082640.115 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082640.115 WARN  SCardTransmit(READ RECORD 3 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082640.116 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082640.116 WARN  SCardTransmit(READ RECORD 4 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082640.124 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082640.124 WARN  SCardTransmit(READ RECORD 5 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082640.125 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082640.125 WARN  SCardTransmit(READ RECORD 6 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082640.126 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082640.126 WARN  SCardTransmit(READ RECORD 7 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082640.127 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082640.127 WARN  SCardTransmit(READ RECORD 8 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082640.128 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082640.128 WARN  SCardTransmit(READ RECORD 9 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082640.129 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082640.129 WARN  SCardTransmit(READ RECORD 10 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082640.130 INFO  READ NAME =================================
+1325082640.131 DEB1  READER	SpringCard CrazyWriter (44CC355B) 00 00
+1325082640.131 DEB1  ATRIB	Hex:	ER	SpringCard CrazyWriter (44CC355B) 00 00
+3B8F8001804F0CA000000306030001000000006A
+1325082640.131 DEB1  		Ascii:	           O                           j
+1325082640.131 WARN  SCardTransmit(SELECT CALYPSO_APPLICATION) -> SW=6F00
+1325082640.131 DEB1  APPLIC	1TIC.ICA
+1325082640.131 DEB2  CS 1 file=
+
+1325082640.140 WARN  SCardTransmit(SELECT ?????????) -> SW=6F00
+1325082640.143 WARN  SCardTransmit(READ RECORD 2 from ????????? file) -> SW=6F00 - ** Unkown error code **
+1325082640.143 DEB2  CS 2 file=
+
+1325082640.144 INFO  **********Read ATRIB**********
+1325082640.149 DEB1  READER	SpringCard CrazyWriter (44CC355B) 00 00
+1325082640.149 INFO  ATRIB:3B8F8001804F0CA000000306030001000000006A
+log ends: Wed Dec 28 14:30:40 2011
+log start: Wed Dec 28 14:35:23 2011
+1325082923.343 INFO  READ MIFARE =================================
+1325082923.344 DEB1  READER	SpringCard CrazyWriter (44CC355B) 00 00
+1325082923.344 DEB1  ATRIB	Hex:	ER	SpringCard CrazyWriter (44CC355B) 00 00
+3B8F8001804F0CA000000306030001000000006A
+1325082923.344 DEB1  		Ascii:	           O                           j
+1325082923.345 DEB1  MIFARE	Hex:	6D00
+1325082923.345 DEB1  		Ascii:	 m  
+1325082923.347 INFO  READ ALL =================================
+1325082923.347 DEB1  READER	SpringCard CrazyWriter (44CC355B) 00 00
+1325082923.347 DEB1  ATRIB	Hex:	ER	SpringCard CrazyWriter (44CC355B) 00 00
+3B8F8001804F0CA000000306030001000000006A
+1325082923.347 DEB1  		Ascii:	           O                           j
+1325082923.348 WARN  SCardTransmit(SELECT CALYPSO_APPLICATION) -> SW=6F00
+1325082923.348 DEB1  APPLIC	1TIC.ICA
+1325082923.349 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082923.349 WARN  SCardTransmit(READ RECORD 2 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082923.364 WARN  SCardTransmit(SELECT Environment) -> SW=6F00
+1325082923.365 WARN  SCardTransmit(READ RECORD 1 from Environment file) -> SW=6F00 - ** Unkown error code **
+1325082923.365 DEB1  		envVersionNumber       = 27
+1325082923.365 DEB1  		bitmap=60
+1325082923.365 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082923.366 WARN  SCardTransmit(READ RECORD 1 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082923.366 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082923.367 WARN  SCardTransmit(READ RECORD 2 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082923.368 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082923.368 WARN  SCardTransmit(READ RECORD 3 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082923.369 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082923.369 WARN  SCardTransmit(READ RECORD 4 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082923.370 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082923.370 WARN  SCardTransmit(READ RECORD 5 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082923.371 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082923.371 WARN  SCardTransmit(READ RECORD 6 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082923.372 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082923.372 WARN  SCardTransmit(READ RECORD 7 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082923.373 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082923.373 WARN  SCardTransmit(READ RECORD 8 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082923.374 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082923.374 WARN  SCardTransmit(READ RECORD 9 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082923.375 WARN  SCardTransmit(SELECT Contracts) -> SW=6F00
+1325082923.376 WARN  SCardTransmit(READ RECORD 10 from Contracts file) -> SW=6F00 - ** Unkown error code **
+1325082923.377 INFO  READ NAME =================================
+1325082923.384 DEB1  READER	SpringCard CrazyWriter (44CC355B) 00 00
+1325082923.384 DEB1  ATRIB	Hex:	ER	SpringCard CrazyWriter (44CC355B) 00 00
+3B8F8001804F0CA000000306030001000000006A
+1325082923.384 DEB1  		Ascii:	           O                           j
+1325082923.384 WARN  SCardTransmit(SELECT CALYPSO_APPLICATION) -> SW=6F00
+1325082923.384 DEB1  APPLIC	1TIC.ICA
+1325082923.384 DEB2  CS 1 file=
+
+1325082923.385 WARN  SCardTransmit(SELECT ?????????) -> SW=6F00
+1325082923.385 WARN  SCardTransmit(READ RECORD 2 from ????????? file) -> SW=6F00 - ** Unkown error code **
+1325082923.385 DEB2  CS 2 file=
+
+1325082923.386 INFO  **********Read ATRIB**********
+1325082923.391 DEB1  READER	SpringCard CrazyWriter (44CC355B) 00 00
+1325082923.391 INFO  ATRIB:3B8F8001804F0CA000000306030001000000006A
+log ends: Wed Dec 28 14:35:23 2011
+log start: Wed Dec 28 16:34:31 2011
+1325090071.781 DEB1  READER	SpringCard CrazyWriter (44CC355B) 00 00
+1325090071.781 DEB1  ATRIB	Hex:	ER	SpringCard CrazyWriter (44CC355B) 00 00
+3B8F8001804F0CA000000306030001000000006A
+1325090071.781 DEB1  		Ascii:	           O                           j
+1325090071.781 INFO  READ MIFARE =================================
+1325090071.781 INFO  	Reader Used=SpringCard CrazyWriter (44CC355B) 00 00
+
+1325090071.806 DEB1  CS recv_len=2 size=48
+
+1325090071.806 ERRO  MIFARE_CLASSIC_READ failed, SW=6982
+
+1325090071.806 ERRO  MifareClassicRead error FFFFFFFD
+
+log ends: Wed Dec 28 16:34:31 2011
