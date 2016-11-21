@@ -19,8 +19,8 @@ main()
 	unsigned char atrib[1000];
 	char stratrib[1000];
 
-	mc_scard_read_atrib(NULL, atrib ,&alen);
-	mc_bin_to_hex_str(atrib,alen,stratrib);
+	scard_read_atrib(NULL, atrib ,&alen);
+	bin_to_hex_str(atrib,alen,stratrib);
 
 	log_printf(NULL,LOG_INFO,"ATRIB:%s",stratrib);
 

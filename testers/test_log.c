@@ -1,4 +1,4 @@
-#include "mc_log.h"
+#include "log.h"
 FILE *fplog;
 
 main()

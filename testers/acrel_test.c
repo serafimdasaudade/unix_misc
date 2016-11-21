@@ -4,8 +4,8 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <math.h>
-#include "../src/libmodbus/src/modbus.h"
-#include "../mc_misc/include/mc_misc.h"
+#include <modbus.h>
+#include "log.h"
 
 #define LOG_FILE_METERS "a.log"
 #define SLAVE_ADDRESS_ID 1

@@ -5,7 +5,7 @@
 #include <netdb.h>
 #include <string.h>
 #include <errno.h>
-#include "mc_misc.h"
+#include "../include/log.h"
 
 #define PORT 		0x1234
 #define DIRSIZE 	8192
@@ -18,7 +18,7 @@ int log_level;
 int do_work(FILE *fplog,int sd)
 {
 	char buf[100];
-	mc_soc_recv(fplog,sd,buf,100);
+	soc_recv(fplog,sd,buf,100);
 	buf[10]=0;
 	printf("recvd=%s\n",buf);
 }
@@ -30,7 +30,7 @@ main()
 
 	fplog=log_open_file(0,"aa.log");
 
-	sdsocket=mc_soc_serv_open(fplog,PORT);
+	sdsocket=soc_serv_open(fplog,PORT);
 	if (sdsocket==-1)
 	{
                 log_printf(fplog,LOG_ERROR,"Open socket %s",strerror(errno));
@@ -38,7 +38,7 @@ main()
 	}
 	else
 	{
-		sd=mc_soc_serv_wait_for_client(fplog,sdsocket,PORT);
+		sd=soc_serv_wait_for_client(fplog,sdsocket,PORT);
 		if (sd==-1)
 		{
                 	log_printf(fplog,LOG_ERROR,"Wait socket %s",strerror(errno));
@@ -46,7 +46,7 @@ main()
 		}
         	log_printf(fplog,LOG_DEBUG2,"Client connected");
 		do_work(fplog,sd);
-		mc_soc_serv_close(fplog,sdsocket,sd);
+		soc_serv_close(fplog,sdsocket,sd);
 	}
 end:
  	log_close_file(fplog);

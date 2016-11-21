@@ -9,9 +9,9 @@
 
 #include <unistd.h>
 #include <stdlib.h>
-#include "../include/mc_log.h"
-#include "../include/mc_rs232.h"
-#include "../include/mc_meters.h"
+#include "../include/log.h"
+#include "../include/rs232.h"
+#include "../include/meters.h"
 
 FILE *fplog;
 
@@ -40,8 +40,8 @@ int main(int argc,char *argv[])
 
 	sleep(1);
 
-	fd=mc_open_rs232(fplog,argv[1],B115200);
-	//fd=mc_open_rs232(fplog,argv[1],B19200);
+	fd=open_rs232(fplog,argv[1],B115200);
+	//fd=open_rs232(fplog,argv[1],B19200);
 	if (fd<=0)
 	{
 		log_printf(fplog,LOG_ERROR,"%s: Error opening meter dev=%s","TESTER",argv[1]);
@@ -52,14 +52,14 @@ int main(int argc,char *argv[])
 	cntt=0;
 	while (1)
 	{
-		mc_gettime_ms(fplog,&stime);
-		if ((rc=mc_meter_read_v_i_e(fplog,fd, &v, &i,&e))<0)
+		gettime_ms(fplog,&stime);
+		if ((rc=meter_read_v_i_e(fplog,fd, &v, &i,&e))<0)
 		{
 			log_printf(fplog,LOG_ERROR,"%s: Error reading meter RC=%d","MT",rc);
 		}
 		else
 		{
-			mc_gettime_ms(fplog,&etime);
+			gettime_ms(fplog,&etime);
 			if (*argv[2]=='1') log_printf(fplog,LOG_INFO,"%s: meter V=%2.2f I=%2.2f E=%d\n","MT",(float)v/100,(float)i/100,e);
 			if (*argv[2]=='2')
 			{
@@ -75,7 +75,7 @@ int main(int argc,char *argv[])
 
 //		usleep(50000);
 	}
-	mc_close_rs232(fplog,fd);
+	close_rs232(fplog,fd);
 	log_end("T");
 }
 

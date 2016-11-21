@@ -15,7 +15,7 @@ void func(int sig)
 	if ( (ii%5)==0 )
 	{
 		mais=0;
-		mc_timer_stop(NULL,tt);
+		timer_stop(NULL,tt);
 	}
 }
 void func1(int sig)
@@ -26,7 +26,7 @@ void func1(int sig)
 	if ( (ii%5)==0 )
 	{
 		mais1=0;
-		mc_timer_stop(NULL,tt1);
+		timer_stop(NULL,tt1);
 	}
 }
 
@@ -45,7 +45,7 @@ main()
 redo:
 	printf("Arming timer for 1 secs should call func 5 times \n");
 
-	rc=mc_timer_start(NULL,1.000000001,func,&tt);
+	rc=timer_start(NULL,1.000000001,func,&tt);
 	if (rc)
 	{
 		printf("Exiting...rc=%d\n",rc);
@@ -57,14 +57,14 @@ redo:
 
 mais=1;
 	/* Lets test second call to timer */
-	rc=mc_timer_start(NULL,0.500000001,func1,&tt1);
+	rc=timer_start(NULL,0.500000001,func1,&tt1);
 	if (rc)
 	{
 		printf("Exiting...rc=%d\n",rc);
 		return(1);
 	}
 
-	while (mais1) mc_sleep_ms(NULL,1000);
+	while (mais1) sleep_ms(NULL,1000);
 	printf("Stopped second timer\n");
 mais1=1;
 

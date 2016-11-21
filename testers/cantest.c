@@ -1,15 +1,6 @@
-/*
- * mc_cantest.c
- *
- *  Created on: Nov 26, 2010
- *      Author: Domingos Bento
- *      email: domingos.bento@magnumcap.com
- *		Project: chademo @ MagnumCap
- *		
- */
-#include "mc_log.h"
-#include "mc_misc.h"
-#include "mc_can.h"
+#include "log.h"
+//#include "misc.h"
+#include "can.h"
 FILE *fplog;
 
 int main(int argc, char *argv[])
@@ -23,7 +14,7 @@ int main(int argc, char *argv[])
 
 	fplog=log_open_file(LOG_DEBUG,"a.log");
 
-	if ( !mc_open_can( NULL, &ftdi_d, SPEED_500KBITS) ) {
+	if ( !open_can( NULL, &ftdi_d, SPEED_500KBITS) ) {
 		printf("Failed to open channel\n");
 	}
 
@@ -51,7 +42,7 @@ int main(int argc, char *argv[])
 		{
 		while(1)
 		{
-			mc_recv_can(NULL, &ftdi_d, &msgRcv);
+			recv_can(NULL, &ftdi_d, &msgRcv);
 			if (msgRcv.len>0)
 			{
 				log_printf(NULL,LOG_INFO,"-------------RECEBIDO------------");
@@ -69,14 +60,14 @@ int main(int argc, char *argv[])
 			msgSend.id=101;
 			msgSend.len=8;
 			memcpy(msgSend.data,data_send,8);
-			mc_send_can(fplog, &ftdi_d, &msgSend );
+			send_can(fplog, &ftdi_d, &msgSend );
 		}
 
 
 	}
 
 	printf("Bye,bye....\n");
-	mc_close_can(NULL,&ftdi_d);
+	close_can(NULL,&ftdi_d);
 
 	return 0;
 }

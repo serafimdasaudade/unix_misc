@@ -27,7 +27,7 @@ main()
 	fplog=log_start("T",LOG_DEBUG2);
 while(1)
 {
-	rc=mc_scard_startup(fplog, &hContext);
+	rc=scard_startup(fplog, &hContext);
 //	if (rc) return(-1);
 
 //	while (1)
@@ -35,7 +35,7 @@ while(1)
 	  
 		sleep (1);
 
-		rc=mc_scard_find_first_reader_with_a_card(fplog,hContext,reader_used);
+		rc=scard_find_first_reader_with_a_card(fplog,hContext,reader_used);
 		if (rc)
 		{
 			goto end;
@@ -46,7 +46,7 @@ while(1)
 		int k;
 		for (k=0; k<=15 ; k++)
 		{
-			rc=mc_mobie_mifare_read_sector(fplog, hContext, reader_used, k, sdata, &sdlen);
+			rc=mobie_mifare_read_sector(fplog, hContext, reader_used, k, sdata, &sdlen);
 			if (rc)
 			{
 				goto end;
@@ -56,13 +56,13 @@ while(1)
 
 			if (k==0)
 			{
-				mc_mobie_mifare_parse_cardid_from_sector_0_data(fplog, sdata,&card_id);
+				mobie_mifare_parse_cardid_from_sector_0_data(fplog, sdata,&card_id);
 			}
 			if (k==15)
 			{
 				//verificar se comeca por OCTAL etc
 				//mc_mobie_mifare_parse_does_sector_15_look_good(fplog, sdata,&pin);
-				mc_mobie_mifare_parse_pin_from_sector_15_data(fplog, sdata,&pin);
+				mobie_mifare_parse_pin_from_sector_15_data(fplog, sdata,&pin);
 			}
 		}
 		log_printf(fplog,LOG_INFO,"----- Mobie data -----");
@@ -72,7 +72,7 @@ while(1)
 
 //	}
 end:
-	(void)mc_scard_shutdown(fplog,&hContext);
+	(void)scard_shutdown(fplog,&hContext);
 }
 	log_end("T");
 }
