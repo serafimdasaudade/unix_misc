@@ -3,8 +3,8 @@ LIBS_PCSC=-lpcsclite
 #LIBS=../lib/mc_libs.a  -lrt  /usr/lib/libftdi.so.1
 LIBS=../lib/libs.a  -pthread -lrt -lm `pkg-config --cflags --libs libmodbus`
 
-
-#all:	gpiocltest timer_test test_mifare_reader test_mifare_reader_change_pin test_mifare_reader_write_data trs232 read_card_atrib
+ALL=trs232 gpiocltest gpiotest test_log cli serv timer_test acrel_test rs232_modbus
+#ALL:	gpiocltest timer_test test_mifare_reader test_mifare_reader_change_pin test_mifare_reader_write_data trs232 read_card_atrib
 all:	trs232 gpiocltest gpiotest test_log cli serv timer_test acrel_test rs232_modbus
 
 trs232:	trs232.o 

@@ -7,7 +7,7 @@
 #include <stdlib.h>     /* atoi */
 
 #define ADDRESS		0x01
-#define FUNCTION_CODE	0x03
+#define FUNCTION_CODE	0x04
 FILE *fplog;
 
 unsigned char buf[20];
@@ -29,21 +29,64 @@ int main(void)
  
   while(1){
  
-  fd=open_rs232(fplog,"/dev/ttyUSB0",9600);
+  fd=open_rs232(fplog,"/dev/ttyUSB0",2400);
   
   volts_func();
   amps_func();
-  hz_func();
-  power_func();
-  energy_func();
-  reactive_power_func();
-  pf_func();
+  //hz_func();
+  //power_func();
+  //energy_func();
+  //reactive_power_func();
+  //pf_func();
   close_rs232(fplog,fd);
   sleep(1);
+exit(0);
  }
   log_end("M");
   //log_close_file(fplog);
   exit(0);
+}
+
+float volts_func(void)
+{
+  buf[0]=ADDRESS;
+  buf[1]=FUNCTION_CODE;
+  buf[2]=0x00;
+  buf[3]=0x00;
+  buf[4]=0x00;
+  buf[5]=0x02;
+  buf[6]='\0';
+    
+  crc16=crc16_ccitt(buf, 6);
+  log_printf(fplog,LOG_DEBUG2,"crc16_ccitt=	    0x%X\n",crc16);
+  
+  crc16=crc16_func((unsigned char *)buf, 6);
+  log_printf(fplog,LOG_DEBUG2,"crc16 modbus rtu= 0x%X\n",crc16);
+  buf[6]=crc16;
+  buf[7]=crc16>>8;
+  buf[8]='\0';
+  
+  log_printf(fplog,LOG_DEBUG,"modbus rtu frame V L-N= 0x%X 0x%X 0x%X 0x%X 0x%X 0x%X 0x%X 0x%X\n",buf[0],buf[1],buf[2],buf[3],buf[4],buf[5],buf[6],buf[7]);
+  
+  write_rs232(fplog,fd, buf,8);
+  int i=0;
+  while(read_rs232_timeout(fplog,fd, (unsigned char*) buf,100,200)>0){
+    buffer[i]=buf[0];
+    i++;
+  }    
+  char V_L_N[10];  
+  float V;
+  //if(buffer[0]==FUNCTION_CODE)
+  {
+    //if(buffer[2]==0x02)
+    {
+      sprintf(V_L_N,"%X%X%X%X",buffer[3],buffer[4],buffer[5],buffer[6]);      
+      log_printf(fplog,LOG_DEBUG,"V phase neutro =0x%s",V_L_N);      
+      V=(float)(buffer[3]<<24|buffer[4]<<16|buffer[5]<<8|buffer[6])/(float)10;
+      
+      log_printf(fplog,LOG_DEBUG,"V phase neutro =%.2f Volts",V);
+    }
+  }
 }
 
 float pf_func(void)
@@ -172,47 +215,6 @@ float power_func()
     }
   }
 }
-float volts_func(void)
-{
-  buf[0]=ADDRESS;
-  buf[1]=FUNCTION_CODE;
-  buf[2]=0x00;
-  buf[3]=0x00;
-  buf[4]=0x00;
-  buf[5]=0x01;
-  buf[6]='\0';
-    
-  crc16=crc16_ccitt(buf, 6);
-  log_printf(fplog,LOG_DEBUG2,"crc16_ccitt=	    0x%X\n",crc16);
-  
-  crc16=crc16_func((unsigned char *)buf, 6);
-  log_printf(fplog,LOG_DEBUG2,"crc16 modbus rtu= 0x%X\n",crc16);
-  buf[6]=crc16;
-  buf[7]=crc16>>8;
-  buf[8]='\0';
-  
-  log_printf(fplog,LOG_DEBUG2,"modbus rtu frame V L-N= 0x%X 0x%X 0x%X 0x%X 0x%X 0x%X 0x%X 0x%X\n",buf[0],buf[1],buf[2],buf[3],buf[4],buf[5],buf[6],buf[7]);
-  
-  write_rs232(fplog,fd, buf,8);
-  int i=0;
-  while(read_rs232_timeout(NULL,fd, (unsigned char*) buf,100,200)>0){
-    buffer[i]=buf[0];
-    i++;
-  }    
-  char V_L_N[10];  
-  float V;
-  if(buffer[0]==ADDRESS && buffer[1]==FUNCTION_CODE)
-  {
-    if(buffer[2]==0x02)
-    {
-      sprintf(V_L_N,"%X%X",buffer[3],buffer[4]);      
-      log_printf(fplog,LOG_DEBUG,"V phase neutro =0x%s",V_L_N);      
-      V=(float)(buffer[3]<<8|buffer[4])/(float)10;
-      
-      log_printf(fplog,LOG_DEBUG,"V phase neutro =%.2f Volts",V);
-    }
-  }
-}
 
 float amps_func()
 {
@@ -233,7 +235,7 @@ float amps_func()
   buf[7]=crc16>>8;
   buf[8]='\0';
   
-  log_printf(fplog,LOG_DEBUG2,"modbus rtu frame Amps= 0x%X 0x%X 0x%X 0x%X 0x%X 0x%X 0x%X 0x%X\n",buf[0],buf[1],buf[2],buf[3],buf[4],buf[5],buf[6],buf[7]);
+  log_printf(fplog,LOG_DEBUG,"modbus rtu frame Amps= 0x%X 0x%X 0x%X 0x%X 0x%X 0x%X 0x%X 0x%X\n",buf[0],buf[1],buf[2],buf[3],buf[4],buf[5],buf[6],buf[7]);
   
   write_rs232(fplog,fd, buf,8);
   int i=0;
@@ -261,8 +263,8 @@ float hz_func()
   buf[0]=ADDRESS;
   buf[1]=FUNCTION_CODE;
   buf[2]=0x00;
-  buf[3]=0x02;
-  buf[4]=0x00;
+  buf[3]=0x00;
+  buf[4]=0x07;
   buf[5]=0x01;
   buf[6]='\0';
   
