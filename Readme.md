@@ -1,10 +1,8 @@
-Version 6.1
+# *Version 6.1*
 
-  Comiped with -Wall
+Note: functout and functout1 may not be threadsafe
 
-  Note functout and functout1 may not be threadsafe
-
-How to compile the lib:
+*How to compile the lib:*
 
 1 - git clone 
 
@@ -12,7 +10,7 @@ How to compile the lib:
 
 3 - make
 
-Now that you compile de lib you are ready to compile the examples on the folder "testers"
+*Now that you compile de lib you are ready to compile the examples on the folder "testers"*
 
 1 - cd testers
 
@@ -20,6 +18,6 @@ Now that you compile de lib you are ready to compile the examples on the folder 
 
 
 
-TODO List:
+# *TODO List:*
 
 
