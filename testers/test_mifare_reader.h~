@@ -1,5 +1,0 @@
-#include <stdio.h>
-#include <string.h>
-#include "mc_scard.h"
-#include "mc_log.h"
-//#include "mc_pcsc.h"
