@@ -18,6 +18,6 @@ Note: functout and functout1 may not be threadsafe
 
 
 
-# *TODO List:*
+# *Todo List:*
 
 
