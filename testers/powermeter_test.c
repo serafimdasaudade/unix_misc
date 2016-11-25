@@ -7,7 +7,7 @@
 #include <modbus.h>
 #include "log.h"
 
-#define LOG_FILE_METERS "a.log"
+#define LOG_FILE_METERS "powermeter.log"
 #define BAUDRATE        2400
 
 #define SLAVE_ADDRESS_ID 1
@@ -271,7 +271,7 @@ int main(int argc, char *argv[])
 	{
 		printf("TOTAL REACTIVE ENERGY=%f VARh\n",read_value);
 	}
-	
+
 	free_modbus(mb_ctx);
 	return 0;
 }
