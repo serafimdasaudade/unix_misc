@@ -61,7 +61,7 @@ while(1)
 			if (k==15)
 			{
 				//verificar se comeca por OCTAL etc
-				//mc_mobie_mifare_parse_does_sector_15_look_good(fplog, sdata,&pin);
+				//mobie_mifare_parse_does_sector_15_look_good(fplog, sdata,&pin);
 				mobie_mifare_parse_pin_from_sector_15_data(fplog, sdata,&pin);
 			}
 		}

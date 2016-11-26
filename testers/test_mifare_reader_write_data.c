@@ -26,10 +26,10 @@ main()
 
 	scanf("%d",&i);
 	
-	rc=mc_scard_startup(fplog, &hContext);
+	rc=scard_startup(fplog, &hContext);
 	if (rc) return(-1);
 	
-	rc=mc_scard_find_first_reader_with_a_card(fplog,hContext,reader_used);
+	rc=scard_find_first_reader_with_a_card(fplog,hContext,reader_used);
 	if (rc)
 	{
 		goto end;
@@ -38,7 +38,7 @@ main()
 	switch(i)
 	{
 	  case 1:
-	rc=mc_mobie_mifare_write_data(fplog, hContext, reader_used, data);
+	rc=mobie_mifare_write_data(fplog, hContext, reader_used, data);
 	if (rc) log_printf(fplog,LOG_ERROR,"write data FAIL\n");
 	else	log_printf(fplog,LOG_ERROR,"Write Data OK \n");
 	  break;
@@ -47,16 +47,16 @@ main()
 	    data[1]=0x00;
 	    data[2]=0x00;
 	    data[3]=0x00;
-	    rc=mc_mobie_mifare_write_data(fplog, hContext, reader_used, data);
+	    rc=mobie_mifare_write_data(fplog, hContext, reader_used, data);
 	if (rc) log_printf(fplog,LOG_ERROR,"clean data FAIL\n");
 	else	log_printf(fplog,LOG_ERROR,"Clean Data OK \n");
 	    break;
 		case 3:
-		rc=mc_mobie_mifare_write_new_id(fplog, hContext, reader_used, "aa");
+		rc=mobie_mifare_write_new_id(fplog, hContext, reader_used, "aa");
 		log_printf(fplog,LOG_ERROR,"rc=%d\n",rc);
 		break;
 	}
 end:
-	(void)mc_scard_shutdown(fplog,&hContext);
+	(void)scard_shutdown(fplog,&hContext);
 	log_end("T");
 }
